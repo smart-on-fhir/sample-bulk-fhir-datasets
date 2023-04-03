@@ -6,13 +6,13 @@ useful for testing downstream workflows.
 
 ## Downloads
 
-- [Tiny](https://github.com/smart-on-fhir/sample-bulk-datasets/archive/refs/heads/10-patients.zip)
+- [Tiny](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/10-patients.zip)
   (10 patients, 1.7MB zipped, 17MB unzipped)
-- [Small](https://github.com/smart-on-fhir/sample-bulk-datasets/archive/refs/heads/100-patients.zip)
+- [Small](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/100-patients.zip)
   (100 patients, 15MB zipped, 117MB unzipped)
-- [Medium](https://github.com/smart-on-fhir/sample-bulk-datasets/archive/refs/heads/1000-patients.zip)
+- [Medium](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/1000-patients.zip)
   (1,000 patients, 162MB zipped, 1.2GB unzipped)
-- [Large](https://github.com/smart-on-fhir/sample-bulk-datasets/archive/refs/heads/10000-patients.zip)
+- [Large](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/10000-patients.zip)
   (10,000 patients, 1.7GB zipped, 13GB unzipped)
 
 ### Which FHIR Resources Are Included?
@@ -28,7 +28,7 @@ useful for testing downstream workflows.
 
 The 100-patient dataset looks like this, for example:
 ```text
-sample-bulk-dataset-100-patients/
+sample-bulk-fhir-datasets-100-patients/
   Condition.000.ndjson
   DocumentReference.000.ndjson
   Encounter.000.ndjson
@@ -93,7 +93,7 @@ with slightly different purposes:
 ## Regenerating a Dataset
 
 ```commandline
-git clone --single-branch git@github.com:smart-on-fhir/sample-bulk-datasets.git
-cd sample-bulk-datasets
+git clone --single-branch git@github.com:smart-on-fhir/sample-bulk-fhir-datasets.git
+cd sample-bulk-fhir-datasets
 ./generate.sh 10 # generates a ten patient dataset
 ```
