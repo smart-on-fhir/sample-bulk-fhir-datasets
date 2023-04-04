@@ -55,6 +55,13 @@ for file in $OUTDIR/*; do
   mv -f $file.sorted $file
 done
 
+# Synthea only likes to generate patient history notes, and tags them as such.
+# But we are interested in a bit more of a mix than that, so fake some emergency department visits.
+HIST_NOTE_TYPE='"system":"http://loinc.org","code":"34117-2","display":"History and physical note"'
+EMER_NOTE_TYPE='"system":"http://loinc.org","code":"34111-5","display":"Emergency department note"'
+# This sed line will modify every 4th line
+sed -i "0~4s|$HIST_NOTE_TYPE|$EMER_NOTE_TYPE|" $OUTDIR/DocumentReference.ndjson
+
 # Split each file to meet GitHub file limits (100MB per file is hard limit, but they complain at 50MB)
 echo "Splitting files into smaller ones..."
 for file in $OUTDIR/*; do
