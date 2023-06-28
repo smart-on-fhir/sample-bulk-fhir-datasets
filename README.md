@@ -6,23 +6,23 @@ useful for testing downstream workflows.
 
 ## Downloads
 
-- [Tiny](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/10-patients.zip)
-  (10 patients, 1.7MB zipped, 17MB unzipped)
-- [Small](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/100-patients.zip)
-  (100 patients, 15MB zipped, 117MB unzipped)
-- [Medium](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/1000-patients.zip)
-  (1,000 patients, 162MB zipped, 1.2GB unzipped)
-- [Large](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/10000-patients.zip)
-  (10,000 patients, 1.7GB zipped, 13GB unzipped)
+- [Small](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/10-patients.zip)
+  (10 patients, 1.9MB zipped, 19MB unzipped)
+- [Medium](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/100-patients.zip)
+  (100 patients, 17MB zipped, 129MB unzipped)
+- [Large](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/1000-patients.zip)
+  (1,000 patients, 183MB zipped, 1.3B unzipped)
 
 ### Which FHIR Resources Are Included?
 
 - Condition
 - DocumentReference
 - Encounter
+- Medication
 - MedicationRequest
 - Observation
 - Patient
+- Procedure
 
 ### What Do the Contents of a Dataset Look Like?
 
@@ -32,10 +32,12 @@ sample-bulk-fhir-datasets-100-patients/
   Condition.000.ndjson
   DocumentReference.000.ndjson
   Encounter.000.ndjson
+  Medication.000.ndjson
   MedicationRequest.000.ndjson
   Observation.000.ndjson
   Observation.001.ndjson
   Patient.000.ndjson
+  Procedure.000.ndjson
 ```
 
 Each file holds a list of FHIR json records (one per line) like:
@@ -67,7 +69,8 @@ but the datasets themselves can be treated as
 ### Non-Goals
 
 - This dataset does not need to serve everyone's needs.
-  - It's primary purpose is to be useful to other SMART on FHIR projects.
+  - It's primary purpose is to be useful to other SMART on FHIR projects,
+    like [Cumulus](https://docs.smarthealthit.org/cumulus/).
   - If you need something different (like, a new resource), it's easy to generate your own with Synthea.
 
 ## Prior Art

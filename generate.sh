@@ -28,7 +28,7 @@ java -jar synthea-with-dependencies.jar \
   --exporter.baseDirectory "$WORKDIR" \
   --exporter.fhir.bulk_data true \
   --exporter.fhir.included_resources \
-  Condition,DiagnosticReport,DocumentReference,Encounter,MedicationRequest,Observation,Patient \
+  Condition,DiagnosticReport,DocumentReference,Encounter,Medication,MedicationRequest,Observation,Patient,Procedure \
   --exporter.hospital.fhir.export false \
   --exporter.practitioner.fhir.export false \
   -cs 54321 \
