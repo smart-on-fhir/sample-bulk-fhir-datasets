@@ -24,11 +24,13 @@ echo "Generating FHIR..."
 # 2. Set dates (-r referenceDate & -e endDate)
 # 3. Sort results (Synthea is multi-threaded and records are generated in an arbitrary order)
 
+# Property docs:
+# https://github.com/synthetichealth/synthea/blob/master/src/main/resources/synthea.properties
 java -jar synthea-with-dependencies.jar \
   --exporter.baseDirectory "$WORKDIR" \
   --exporter.fhir.bulk_data true \
   --exporter.fhir.included_resources \
-  Condition,DiagnosticReport,DocumentReference,Encounter,Medication,MedicationRequest,Observation,Patient,Procedure \
+  Condition,DiagnosticReport,DocumentReference,Encounter,MedicationRequest,Observation,Patient,Procedure \
   --exporter.hospital.fhir.export false \
   --exporter.practitioner.fhir.export false \
   -cs 54321 \
