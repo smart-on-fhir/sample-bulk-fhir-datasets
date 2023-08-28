@@ -2,9 +2,13 @@
 
 This repo hosts [Synthea](https://github.com/synthetichealth/synthea)-generated
 sample [FHIR](https://www.hl7.org/fhir/) bulk export results,
-useful for testing downstream workflows.
+useful for testing downstream workflows. It also hosts a script for generating samples of
+custom sizes. See the [regenerating a dataset section below](#regenerating-a-dataset) for
+instructions on generating custom sized datasets.
 
 ## Downloads
+
+We've created several pre-zipped bundles of sample patients if you only
 
 - [Small](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/10-patients.zip)
   (10 patients, 1.9MB zipped, 19MB unzipped)
@@ -27,6 +31,7 @@ useful for testing downstream workflows.
 ### What Do the Contents of a Dataset Look Like?
 
 The 100-patient dataset looks like this, for example:
+
 ```text
 sample-bulk-fhir-datasets-100-patients/
   Condition.000.ndjson
@@ -41,6 +46,7 @@ sample-bulk-fhir-datasets-100-patients/
 ```
 
 Each file holds a list of FHIR json records (one per line) like:
+
 ```json
 {"resourceType":"Condition","id":"000023ef-c498-02cc-c9b7-20aab279b262",...}
 ```
@@ -82,10 +88,10 @@ with slightly different purposes:
   providing a few small validated JSON transaction bundles
 
 - [sample-patients](https://github.com/smart-on-fhir/sample-patients) (2018): focused on
-  generating individual JSON files based off a custom text file format 
+  generating individual JSON files based off a custom text file format
 
 - [generated-sample-data](https://github.com/smart-on-fhir/generated-sample-data) (2021): focused
-  on generating a JSON transaction bundle for insertion into a FHIR server 
+  on generating a JSON transaction bundle for insertion into a FHIR server
 
 - [ctakes-examples](https://github.com/Machine-Learning-for-Medical-Language/ctakes-examples)
   (2022): focused on realistic plaintext physician notes
@@ -94,6 +100,19 @@ with slightly different purposes:
   general purpose FHIR generator, used to generate this dataset
 
 ## Regenerating a Dataset
+
+The following must be installed for the generation script to succeed:
+
+- Java
+- GNU `sed`
+  - Note: For mac users, this script requires the installation of `gnu-sed` and
+    proper aliasing `gsed` to `sed`. We hav had success completing this installation
+    and setup using this [homebrew package](https://formulae.brew.sh/formula/gnu-sed#default)
+- GNU `split`
+  - Note: For mac users, we have had success with the 
+    [coreutils brew package](https://formulae.brew.sh/formula/coreutils), which includes `split`
+
+Then you should be able to clone and run the script:
 
 ```commandline
 git clone --single-branch git@github.com:smart-on-fhir/sample-bulk-fhir-datasets.git
