@@ -65,7 +65,7 @@ EMER_NOTE_TYPE='"system":"http://loinc.org","code":"34111-5","display":"Emergenc
 SED=sed
 which gsed >/dev/null && SED=gsed 
 # This sed line will modify every 4th line
-SED -i "0~4s|$HIST_NOTE_TYPE|$EMER_NOTE_TYPE|" $OUTDIR/DocumentReference.ndjson
+$SED -i "0~4s|$HIST_NOTE_TYPE|$EMER_NOTE_TYPE|" $OUTDIR/DocumentReference.ndjson
 
 # Split each file to meet GitHub file limits (100MB per file is hard limit, but they complain at 50MB)
 echo "Splitting files into smaller ones..."
@@ -74,7 +74,7 @@ SPLIT=split
 which gsplit >/dev/null && SPLIT=gsplit
 for file in $OUTDIR/*; do
   resource=$(basename $file .ndjson)
-  SPLIT -d --additional-suffix .ndjson --suffix-length 3 --line-bytes 49m $file $OUTDIR/$resource.
+  $SPLIT -d --additional-suffix .ndjson --suffix-length 3 --line-bytes 49m $file $OUTDIR/$resource.
   rm $file
 done
 
