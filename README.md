@@ -8,8 +8,6 @@ instructions on generating custom sized datasets.
 
 ## Downloads
 
-We've created several pre-zipped bundles of sample patients if you only
-
 - [Small](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/10-patients.zip)
   (10 patients, 1.9MB zipped, 19MB unzipped)
 - [Medium](https://github.com/smart-on-fhir/sample-bulk-fhir-datasets/archive/refs/heads/100-patients.zip)
