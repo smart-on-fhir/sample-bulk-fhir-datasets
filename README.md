@@ -105,12 +105,11 @@ The following must be installed for the generation script to succeed:
 
 - Java
 - GNU `sed`
-  - Note: For mac users, this script requires the installation of `gnu-sed` and
-    proper aliasing `gsed` to `sed`. We hav had success completing this installation
-    and setup using this [homebrew package](https://formulae.brew.sh/formula/gnu-sed#default)
+  - **For mac users**, this script requires manual installation of GNU's `sed` command. We
+    have had success with this [gnu-sed homebrew package](https://formulae.brew.sh/formula/gnu-sed#default)
 - GNU `split`
-  - Note: For mac users, we have had success with the 
-    [coreutils brew package](https://formulae.brew.sh/formula/coreutils), which includes `split`
+  - **For mac users**, this script requires manual installation of GNU's `split` command. We
+    have had success with this [coreutils homebrew package](https://formulae.brew.sh/formula/coreutils), which includes `split`
 
 Then you should be able to clone and run the script:
 
