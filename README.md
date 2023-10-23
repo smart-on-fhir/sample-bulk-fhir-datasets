@@ -17,9 +17,13 @@ instructions on generating custom sized datasets.
 
 ### Which FHIR Resources Are Included?
 
+- AllergyIntolerance
 - Condition
+- Device
+- DiagnosticReport
 - DocumentReference
 - Encounter
+- Immunization
 - Medication
 - MedicationRequest
 - Observation
@@ -32,10 +36,13 @@ The 100-patient dataset looks like this, for example:
 
 ```text
 sample-bulk-fhir-datasets-100-patients/
+  AllergyIntolerance.000.ndjson
   Condition.000.ndjson
+  Device.000.ndjson
+  DiagnosticReport.000.ndjson
   DocumentReference.000.ndjson
   Encounter.000.ndjson
-  Medication.000.ndjson
+  Immunization.000.ndjson
   MedicationRequest.000.ndjson
   Observation.000.ndjson
   Observation.001.ndjson
