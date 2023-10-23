@@ -30,7 +30,7 @@ java -jar synthea-with-dependencies.jar \
   --exporter.baseDirectory "$WORKDIR" \
   --exporter.fhir.bulk_data true \
   --exporter.fhir.included_resources \
-  Condition,DiagnosticReport,DocumentReference,Encounter,MedicationRequest,Observation,Patient,Procedure \
+  AllergyIntolerance,Condition,Device,DiagnosticReport,DocumentReference,Encounter,Immunization,MedicationRequest,Observation,Patient,Procedure \
   --exporter.hospital.fhir.export false \
   --exporter.practitioner.fhir.export false \
   -cs 54321 \
@@ -46,9 +46,6 @@ mv "$WORKDIR/fhir" $OUTDIR
 rm -r "$WORKDIR"
 
 ### Manipulation of results ###
-
-# We don't care about DiagnosticReport, but Synthea won't generate DocumentReference without it.
-rm "$OUTDIR/DiagnosticReport.ndjson"
 
 # Sort each file
 echo "Sorting files..."
