@@ -75,5 +75,10 @@ for file in $OUTDIR/*; do
   rm $file
 done
 
+# Add a fake bulk export log file,
+# both for semi-realism and so that Cumulus ETL can parse it.
+# https://github.com/smart-on-fhir/bulk-data-client/wiki/Bulk-Data-Export-Log-Items
+$SED "s/%NUM%/$NUM/g" log.ndjson > $OUTDIR/log.ndjson
+
 DIR_SIZE=$(du -sh $OUTDIR | cut -f1)
 echo "Done! FHIR is in ./$OUTDIR ($DIR_SIZE)"
