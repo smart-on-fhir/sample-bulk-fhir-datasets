@@ -1,0 +1,4 @@
+{"exportId": "export-10", "timestamp": "2024-08-06T14:11:57.560606-04:00", "eventId": "kickoff", "eventDetail": {"exportUrl": "https://example.com/fhir/Group/sample-10/$export"}}
+{"exportId": "export-10", "timestamp": "2024-08-06T14:12:57.779320-04:00", "eventId": "status_complete", "eventDetail": {"transactionTime": "2024-08-06T18:12:57Z"}}
+{"exportId": "export-10", "timestamp": "2024-08-06T14:12:57.779320-04:00", "eventId": "manifest_complete", "eventDetail": {"transactionTime": "2024-08-06T18:12:57Z", "totalOutputFileCount": 0, "totalDeletedFileCount": 0, "totalErrorFileCount": 0, "totalManifests": 0}}
+{"exportId": "export-10", "timestamp": "2024-08-06T14:12:58.124336-04:00", "eventId": "export_complete", "eventDetail": {"files": 0, "resources": 0, "bytes": 0, "attachments": null, "duration": 563}}
