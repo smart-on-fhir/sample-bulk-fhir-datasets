@@ -30,9 +30,7 @@ java -jar synthea-with-dependencies.jar \
   --exporter.baseDirectory "$WORKDIR" \
   --exporter.fhir.bulk_data true \
   --exporter.fhir.included_resources \
-  AllergyIntolerance,Condition,Device,DiagnosticReport,DocumentReference,Encounter,Immunization,MedicationRequest,Observation,Patient,Procedure \
-  --exporter.hospital.fhir.export false \
-  --exporter.practitioner.fhir.export false \
+  AllergyIntolerance,Condition,Device,DiagnosticReport,DocumentReference,Encounter,Immunization,Location,MedicationRequest,Observation,Organization,Patient,Practitioner,PractitionerRole,Procedure \
   -cs 54321 \
   -s 54321 \
   -r 20230403 \
@@ -70,7 +68,7 @@ echo "Splitting files into smaller ones..."
 SPLIT=split
 which gsplit >/dev/null && SPLIT=gsplit
 for file in $OUTDIR/*; do
-  resource=$(basename $file .ndjson)
+  resource=$(basename $file | cut -d. -f1)
   $SPLIT -d --additional-suffix .ndjson --suffix-length 3 --line-bytes 49m $file $OUTDIR/$resource.
   rm $file
 done
