@@ -36,6 +36,7 @@ echo "Generating FHIR..."
 java -jar synthea-with-dependencies.jar \
   --exporter.baseDirectory "$WORKDIR" \
   --exporter.fhir.bulk_data true \
+  --exporter.clinical_note.fhir.export true \
   --exporter.fhir.included_resources \
   AllergyIntolerance,Condition,Device,DiagnosticReport,DocumentReference,Encounter,Immunization,Location,MedicationRequest,Observation,Organization,Patient,Practitioner,PractitionerRole,Procedure \
   -cs 54321 \
@@ -44,7 +45,6 @@ java -jar synthea-with-dependencies.jar \
   -e 20230403 \
   -p "$NUM" \
   Kansas >/dev/null 2>/dev/null
-
 # Move output files into place
 rm -rf $OUTDIR
 mv "$WORKDIR/fhir" $OUTDIR
