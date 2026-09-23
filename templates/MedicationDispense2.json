@@ -1,0 +1,40 @@
+{
+    "resourceType": "MedicationDispense",
+    "id": @ID@,
+    "status": "completed",
+    "category": {
+        "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-category",
+            "code": "inpatient",
+            "display": "Inpatient"
+        }]
+    },
+    "medicationCodeableConcept": @MEDICATION@,
+    "subject": @PATIENT@,
+    "context": @ENCOUNTER@,
+    "authorizingPrescription": [@PRESCRIPTION@],
+    "type": {
+        "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "RF",
+            "display": "Refill"
+        }]
+    },
+    "quantity": {
+        "value": 90,
+        "unit": "doses",
+        "system": "http://unitsofmeasure.org",
+        "code": "{dose}"
+    },
+    "daysSupply": {
+        "value": 90,
+        "unit": "days",
+        "system": "http://unitsofmeasure.org",
+        "code": "d"
+    },
+    "whenHandedOver": @WHEN@,
+    "dosageInstruction": [{
+        "sequence": 1,
+        "text": "Take as directed."
+    }]
+}

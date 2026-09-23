@@ -80,6 +80,34 @@ do
   cat templates/Specimen$VER.json | $SED "$ALL" | jq -c >> "$OUTDIR"/Specimen.ndjson
 done
 
+# Make a MedicationDispense resource for each MedicationRequest
+# (Synthea does not support these resources, but we'd like them)
+FIRST_MEDREQ=y
+cat "$OUTDIR"/MedicationRequest.ndjson | while read line
+do
+  ID=$(echo "$line" | jq -c '.["id"]')
+  PATIENT=$(echo "$line" | jq -c '.["subject"]')
+  ENCOUNTER=$(echo "$line" | jq -c '.["encounter"]')
+  MEDICATION=$(echo "$line" | jq -c '.["medicationCodeableConcept"]')
+  WHEN=$(echo "$line" | jq -c '.["authoredOn"]')
+  PURE_ID=$(echo $ID | tr -d '"')
+  PRESCRIPTION="{\"reference\": \"MedicationRequest/$PURE_ID\"}"
+  ALL="s|@ID@|$ID|g;s|@PATIENT@|$PATIENT|g;s|@ENCOUNTER@|$ENCOUNTER|g;s|@MEDICATION@|$MEDICATION|g;s|@WHEN@|$WHEN|g;s|@PRESCRIPTION@|$PRESCRIPTION|g"
+
+  # Make one of each of these that has a different type/category whatever.
+  # This is to make sure that there is *some* variety in downstream consumers and that
+  # if anyone (like Cumulus Library) has minimum-patient-size bucketing, this can be detected by
+  # ensuring these different ones are properly dropped.
+  if [ "$FIRST_MEDREQ" = "y" ]; then
+    VER="2"
+  else
+    VER="1"
+  fi
+  FIRST_MEDREQ=n
+
+  cat templates/MedicationDispense$VER.json | $SED "$ALL" | jq -c >> "$OUTDIR"/MedicationDispense.ndjson
+done
+
 ### Manipulation of results ###
 
 # Sort each file
