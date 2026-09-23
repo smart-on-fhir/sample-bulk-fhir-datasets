@@ -26,6 +26,7 @@ instructions on generating custom sized datasets.
 - EpisodeOfCare
 - Immunization
 - Medication
+- MedicationDispense
 - MedicationRequest
 - Observation
 - Patient
@@ -48,6 +49,7 @@ sample-bulk-fhir-datasets-100-patients/
   EpisodeOfCare.000.ndjson
   Immunization.000.ndjson
   log.ndjson
+  MedicationDispense.000.ndjson
   MedicationRequest.000.ndjson
   Observation.000.ndjson
   Observation.001.ndjson

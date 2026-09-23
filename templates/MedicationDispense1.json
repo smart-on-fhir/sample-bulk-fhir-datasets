@@ -1,0 +1,40 @@
+{
+    "resourceType": "MedicationDispense",
+    "id": @ID@,
+    "status": "completed",
+    "category": {
+        "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-category",
+            "code": "community",
+            "display": "Community"
+        }]
+    },
+    "medicationCodeableConcept": @MEDICATION@,
+    "subject": @PATIENT@,
+    "context": @ENCOUNTER@,
+    "authorizingPrescription": [@PRESCRIPTION@],
+    "type": {
+        "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "FF",
+            "display": "First Fill"
+        }]
+    },
+    "quantity": {
+        "value": 30,
+        "unit": "doses",
+        "system": "http://unitsofmeasure.org",
+        "code": "{dose}"
+    },
+    "daysSupply": {
+        "value": 30,
+        "unit": "days",
+        "system": "http://unitsofmeasure.org",
+        "code": "d"
+    },
+    "whenHandedOver": @WHEN@,
+    "dosageInstruction": [{
+        "sequence": 1,
+        "text": "Take as directed."
+    }]
+}
